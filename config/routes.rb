@@ -10,7 +10,13 @@ get '/users/:id/edit(.:format)', to: 'users#edit'
 resources :articles
 
 get 'signup', to: 'users#new'
+resources :user, except: [:new]
+
 post 'users', to: 'users#create'
+
+get 'login', to: 'sessions#new'
+post 'login', to: 'sessions#create'
+delete 'login', to: 'sessions#destroy'
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
